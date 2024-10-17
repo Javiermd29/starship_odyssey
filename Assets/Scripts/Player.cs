@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
 
     private float horizontal;
     private float vertical;
+
+    //bound
+    private float boundsX = 30f;
+    private float boundsY = 12.5f;
+    private float boundsNegativeY = -18f;
+
     [SerializeField] private float speed;
 
     [SerializeField] private Rigidbody2D rb;
@@ -24,20 +30,20 @@ public class PlayerMovement : MonoBehaviour
         vertical = Input.GetAxis("Vertical") * speed;
 
         //player boundaries
-        if (transform.position.y >= 12.5f)
+        if (transform.position.y >= boundsY)
         {
             transform.position = new Vector2(transform.position.x, 12.5f);
         }
-        else if (transform.position.y <= -18f)
+        else if (transform.position.y <= boundsNegativeY)
         {
             transform.position = new Vector2(transform.position.x, -18f);
         }
 
-        if (transform.position.x >= 30f)
+        if (transform.position.x >= boundsX)
         {
             transform.position = new Vector2(30f, transform.position.y);
         }
-        else if (transform.position.x <= -30f)
+        else if (transform.position.x <= -boundsX)
         {
             transform.position = new Vector2(-30f, transform.position.y);
         }

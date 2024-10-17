@@ -38590,8 +38590,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1225286433
-  m_SortingLayer: 2
+  m_SortingLayerID: 776931963
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7719847c9b832e74f9bb9150aefd45bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -39396,7 +39396,7 @@ Transform:
   m_GameObject: {fileID: 1576907285}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.61, y: -0.3, z: 0}
+  m_LocalPosition: {x: 4.04, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39767,7 +39767,7 @@ GameObject:
   - component: {fileID: 1956919972}
   - component: {fileID: 1956919971}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Level1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
