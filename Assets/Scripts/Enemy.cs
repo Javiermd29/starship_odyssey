@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 5f; // Velocidad de movimiento
-    public Vector2 screenBounds; // Límites de la pantalla
+    private float speed = 5f; // Velocidad de movimiento
+    private Vector2 screenBounds; // Límites de la pantalla
+    private int lifePoints = 3;
 
     void Start()
     {
@@ -16,17 +17,20 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        // Generar movimiento aleatorio
-        float dx = Random.Range(-1f, 1f) * speed * Time.deltaTime;
-        float dy = Random.Range(-1f, 1f) * speed * Time.deltaTime;
-
-        // Actualizar la posición
-        Vector3 newPosition = transform.position + new Vector3(dx, dy, 0);
-
-        // Mantener dentro de los límites
-        newPosition.x = Mathf.Clamp(newPosition.x, -screenBounds.x, screenBounds.x);
-        newPosition.y = Mathf.Clamp(newPosition.y, -screenBounds.y, screenBounds.y);
-
-        transform.position = newPosition;
+        
     }
+
+    public void TakeDamege(int damage)
+    {
+        lifePoints -= damage;
+        Debug.Log("Enemy vida restante: " + lifePoints);
+
+        if (lifePoints <= 0)
+        {
+            Destroy(gameObject);
+            Debug.Log("Ship2 destruido");
+        }
+
+    }
+
 }
