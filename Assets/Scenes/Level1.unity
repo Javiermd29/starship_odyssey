@@ -6440,7 +6440,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3b2c7f9b1c495ce4d8505e5585569e1f, type: 2}
+  - {fileID: 2100000, guid: 44cb380bf07ce564084269c50b39eb13, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -38507,10 +38507,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 5589903647884988524, guid: ed613565d80683749add8d2cc2026e9c, type: 3}
   spawnInterval: 2
   maxEnemies: 5
-  minX: -8
-  maxX: 8
-  minY: -4
-  maxY: 4
+  minSpawnDistance: 10
 --- !u!4 &341589304
 Transform:
   m_ObjectHideFlags: 0
