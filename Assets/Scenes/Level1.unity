@@ -6398,6 +6398,7 @@ GameObject:
   - component: {fileID: 258431611}
   - component: {fileID: 258431613}
   - component: {fileID: 258431612}
+  - component: {fileID: 258431614}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -23128,16 +23129,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 0, y: 0, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 9
-      m_TileSpriteIndex: 9
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 1, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -38318,7 +38309,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: d09e180fb16478749b0a61692154035a, type: 2}
   - m_RefCount: 95
     m_Data: {fileID: 11400000, guid: 02394c9e7c566dc4a824e2f2040805b9, type: 2}
-  - m_RefCount: 95
+  - m_RefCount: 94
     m_Data: {fileID: 11400000, guid: 83cd07ae788979c419416cff2e1dd027, type: 2}
   - m_RefCount: 90
     m_Data: {fileID: 11400000, guid: 92bed32c61f1f1a4f8248393e4cb1729, type: 2}
@@ -38383,7 +38374,7 @@ Tilemap:
     m_Data: {fileID: -1333910170, guid: 8c003381e67c3d44a87c65ad1839f4e5, type: 3}
   - m_RefCount: 95
     m_Data: {fileID: 432225248, guid: 8c003381e67c3d44a87c65ad1839f4e5, type: 3}
-  - m_RefCount: 95
+  - m_RefCount: 94
     m_Data: {fileID: 1524854961, guid: 8c003381e67c3d44a87c65ad1839f4e5, type: 3}
   - m_RefCount: 90
     m_Data: {fileID: -298434602, guid: 8c003381e67c3d44a87c65ad1839f4e5, type: 3}
@@ -38430,7 +38421,7 @@ Tilemap:
   - m_RefCount: 90
     m_Data: {fileID: -373356123, guid: 8c003381e67c3d44a87c65ad1839f4e5, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 3182
+  - m_RefCount: 3181
     m_Data:
       e00: 1
       e01: 0
@@ -38449,7 +38440,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 3182
+  - m_RefCount: 3181
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -38475,6 +38466,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &258431614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258431610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01acc128931d3444fb454161c5249c27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
 --- !u!1 &341589302
 GameObject:
   m_ObjectHideFlags: 0
