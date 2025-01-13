@@ -4,7 +4,21 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private float speed = 5f; // Velocidad de movimiento
+
+    //Movimiento aleatoria de los enemigos
+    private float speed = 4f; // Velocidad de movimiento
+    private float changeDirectionInterval = 2f; //Intervalo para cambiar de direccion
+    private Vector2 direction; //Direccion actual del movimiento
+    private float timer;
+
+    private float detecionRadius = 2f;
+
+    //bounds
+    private float boundsX = 30f;
+    private float boundsNegativeX = 2f;
+    private float boundsY = 12.5f;
+    private float boundsNegativeY = -18f;
+
     private Vector2 screenBounds; // Límites de la pantalla
     private int lifePoints = 3;
 
@@ -16,11 +30,59 @@ public class Enemy : MonoBehaviour
         // Determinar los límites de la pantalla (en unidades del mundo)
         Camera mainCamera = Camera.main;
         screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
+
+        timer = changeDirectionInterval;
     }
 
     void Update()
     {
-        
+        //Mueve al enemigo en la direccion actual
+        transform.Translate(direction * speed * Time.deltaTime);
+
+        //Detecta colisiones con otros enemigos
+        Collider2D[] nearbyEnemies = Physics2D.OverlapCircleAll(transform.position, detecionRadius);
+        foreach (Collider2D enemy in nearbyEnemies)
+        {
+            if (enemy.gameObject != this.gameObject)
+            {
+
+                Vector2 avoidanceDirection = (Vector2)(transform.position - enemy.transform.position).normalized;
+                direction = (direction + avoidanceDirection).normalized;
+                break;
+
+            }
+        }
+
+        Vector3 position = transform.position;
+
+        if (position.x <= boundsNegativeX || position.x >= boundsX)
+        {
+            direction.x *= -1;
+            position.x = Mathf.Clamp(position.x, boundsNegativeX, boundsX);
+        }
+
+        if (position.y <= boundsNegativeY || position.y >= boundsY)
+        {
+            direction.y *= -1;
+            position.y = Mathf.Clamp(position.y, boundsNegativeY, boundsY);
+        }
+
+        transform.position = position;
+
+        timer -= Time.deltaTime;
+        if (timer <= 0f)
+        {
+            SetRandomDirection();
+            timer = changeDirectionInterval;
+        }
+
+    }
+
+     private void SetRandomDirection(){
+        //Genera una direccion aleatoria
+        float randomX = Random.Range(-1f, 1f);
+        float randomY = Random.Range(-1f, 1f);
+        direction = new Vector2(randomX, randomY).normalized;
     }
 
     public void TakeDamege(int damage)

@@ -16,7 +16,6 @@ public class enemySpawner : MonoBehaviour
     private float minX = -0.3f, maxX = 30f;
     private float minY = -18f, maxY = 12.5f;
 
-    // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("SpawnEnemy", 0f, spawnInterval);
@@ -60,7 +59,6 @@ public class enemySpawner : MonoBehaviour
 
     public void EnemyDestroyed()
     {
-        // Llama a este método cuando un enemigo sea destruido
         currentEnemyCount--;
     }
 
