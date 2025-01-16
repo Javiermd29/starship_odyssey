@@ -3,7 +3,10 @@ guid: c62d6e26f3813124981a69e7d585a15f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - powerRb: {instanceID: 0}
+  - doubleShotNo: {fileID: 21300000, guid: 7782117f90fec4a4090e45f1b8518eb6, type: 3}
+  - doubleShot: {fileID: 21300000, guid: 0fe5fad580cd7e74a954a15e49c5a824, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
