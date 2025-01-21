@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 public class PowerUp : MonoBehaviour
 {
 
     [SerializeField] private Rigidbody2D powerRb;
 
-    [SerializeField] private SpriteRenderer doubleShotNo;
-    [SerializeField] private SpriteRenderer doubleShot;
+    private Image doubleShot;
+    [SerializeField] private Sprite doubleShotActive;
 
     private void Start()
     {
-        doubleShotNo = this.gameObject.GetComponent<SpriteRenderer>();
-        doubleShot= this.gameObject.GetComponent<SpriteRenderer>();
+        doubleShot = GameObject.Find("Doble Shot").GetComponent<Image>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -25,8 +25,7 @@ public class PowerUp : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            doubleShotNo.enabled = false;
-            doubleShot.enabled = true;
+            doubleShot.sprite = doubleShotActive;
 
 
             Destroy(gameObject);
