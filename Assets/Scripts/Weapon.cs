@@ -7,18 +7,11 @@ public class Weapon : MonoBehaviour
 {
 
     [SerializeField] private Transform firePoint;
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private GameObject bulletPrefab2;
 
-    /*private Image doubleShot;
-    [SerializeField] private Sprite doubleShotActive;*/
+    [SerializeField] public GameObject normalBulletPrefab;
+    [SerializeField] public GameObject powerUpBulletPrefab;
 
-
-
-    /*private void Start()
-    {
-        doubleShot = GameObject.Find("Doble Shot").GetComponent<Image>();
-    }*/
+    private bool hasPowerUp = false;
 
     void Update()
     {
@@ -32,14 +25,21 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
-
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-
-        /*if (doubleShot.sprite = doubleShotActive)
+        if (hasPowerUp)
         {
-            Instantiate(bulletPrefab2, firePoint.position, firePoint.rotation);
-        }*/
+            Instantiate(powerUpBulletPrefab, firePoint.position, firePoint.rotation);
+        }
+        else
+        {
+            Instantiate(normalBulletPrefab, firePoint.position, firePoint.rotation);
+        }
+        
 
+    }
+
+    public void ActivatePowerUp()
+    {
+        hasPowerUp = true;
     }
 
 }

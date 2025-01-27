@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Rigidbody2D rb;
 
+    [SerializeField] private int lifePoints;
+
 
     private void Start()
     {
@@ -56,4 +58,16 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(horizontal, vertical);
 
     }
+
+    public void TakeDamege(int damage)
+    {
+        lifePoints -= damage;
+
+        if (lifePoints <= 0)
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
 }

@@ -38605,6 +38605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   rb: {fileID: 436766423}
+  lifePoints: 0
 --- !u!212 &436766425
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -38670,8 +38671,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1576907286}
-  bulletPrefab: {fileID: 2706936753053668977, guid: 9a13b8e4d29cb3849baf08334f0476ad, type: 3}
-  bulletPrefab2: {fileID: 5104671824073159486, guid: 7f68289032eea49488bcb9120e1a8aa9, type: 3}
+  normalBulletPrefab: {fileID: 2706936753053668977, guid: 9a13b8e4d29cb3849baf08334f0476ad, type: 3}
+  powerUpBulletPrefab: {fileID: 5104671824073159486, guid: 7f68289032eea49488bcb9120e1a8aa9, type: 3}
 --- !u!61 &436766427
 BoxCollider2D:
   m_ObjectHideFlags: 0

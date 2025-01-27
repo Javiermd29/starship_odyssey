@@ -25,7 +25,13 @@ public class PowerUp : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            doubleShot.sprite = doubleShotActive;
+
+            Weapon weapon = other.GetComponent<Weapon>();
+
+            if (weapon != null)
+            {
+                weapon.ActivatePowerUp();
+            }
 
 
             Destroy(gameObject);

@@ -5,9 +5,8 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - firePoint: {instanceID: 0}
-  - bulletPrefab: {fileID: 2706936753053668977, guid: 9a13b8e4d29cb3849baf08334f0476ad, type: 3}
-  - bulletPrefab2: {fileID: 5104671824073159486, guid: 7f68289032eea49488bcb9120e1a8aa9, type: 3}
-  - doubleShotActive: {fileID: 21300000, guid: 7782117f90fec4a4090e45f1b8518eb6, type: 3}
+  - normalBulletPrefab: {fileID: 2706936753053668977, guid: 9a13b8e4d29cb3849baf08334f0476ad, type: 3}
+  - powerUpBulletPrefab: {fileID: 5104671824073159486, guid: 7f68289032eea49488bcb9120e1a8aa9, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

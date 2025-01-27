@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     private float boundsNegativeY = -18f;
 
     private Vector2 screenBounds; // Límites de la pantalla
-    private int lifePoints = 3;
+    [SerializeField] private int lifePoints;
 
     public GameObject powerup1Prefab;
     public float dropChance = 0.2f;
