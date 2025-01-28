@@ -7,17 +7,10 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField] private float bulletSpeed;
     [SerializeField] private Rigidbody2D rb;
 
-    private void Start()
-    {
-
-        rb.velocity = transform.right * bulletSpeed;
-
-    }
-
     private void Update()
     {
 
-        if (transform.position.x > -37f)
+        if (transform.position.x < -37f)
         {
             Destroy(gameObject);
         }
@@ -38,8 +31,10 @@ public class EnemyBullet : MonoBehaviour
 
             }
 
-            Destroy(gameObject);
 
         }
+
+        Destroy(gameObject);
+
     }
 }

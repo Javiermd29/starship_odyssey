@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyWeapon : MonoBehaviour
 {
-
     [SerializeField] private Transform firePoint;
 
     [SerializeField] public GameObject enemyBulletPrefab;
@@ -45,10 +44,11 @@ public class EnemyWeapon : MonoBehaviour
     private void Shoot()
     {
 
-        if (firePoint != null && enemyBulletPrefab != null)
+        if (firePoint != null && enemyBulletPrefab != null && playerPosition != null)
         {
 
-            GameObject enemyBullet = Instantiate(enemyBulletPrefab, firePoint.position, Quaternion.identity);
+            GameObject enemyBullet = Instantiate(enemyBulletPrefab, firePoint.position, firePoint.rotation);
+            Debug.Log("pum");
 
             Vector2 direction = (playerPosition.position - firePoint.position).normalized;
 

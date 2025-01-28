@@ -38605,7 +38605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   rb: {fileID: 436766423}
-  lifePoints: 0
+  lifePoints: 10
 --- !u!212 &436766425
 SpriteRenderer:
   m_ObjectHideFlags: 0
