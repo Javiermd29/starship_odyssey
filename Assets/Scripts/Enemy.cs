@@ -23,7 +23,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int lifePoints;
 
     public GameObject powerup1Prefab;
+    //public GameObject poweup2Prefab;
     public float dropChance = 0.2f;
+    public float dropChance2 = 0.2f;
 
     void Start()
     {
@@ -112,6 +114,7 @@ public class Enemy : MonoBehaviour
         {
 
             Instantiate(powerup1Prefab, transform.position, Quaternion.identity);
+            //Instantiate(ppowerup2Prefab, transform.position, Queternion.identity);
             Debug.Log("objeto dropeado");
 
         }
