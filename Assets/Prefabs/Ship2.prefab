@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1590644130262566445}
   - component: {fileID: 8864787439786621193}
   - component: {fileID: 8907536779364446705}
-  - component: {fileID: 9086695966495426605}
   - component: {fileID: -5528672940932331230}
   - component: {fileID: 1728540832404234265}
+  - component: {fileID: 9086695966495426605}
   m_Layer: 0
   m_Name: Ship2
   m_TagString: Enemy
@@ -134,21 +134,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7978742, y: 0.3756376}
   m_EdgeRadius: 0
---- !u!114 &9086695966495426605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5589903647884988524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8880f20f70af57144a543258e541e30c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifePoints: 5
-  powerup1Prefab: {fileID: 7605576968229184256, guid: 04f3fe7876698cf4690eae82702f1132, type: 3}
-  dropChance: 0.2
 --- !u!50 &-5528672940932331230
 Rigidbody2D:
   serializedVersion: 4
@@ -191,6 +176,22 @@ MonoBehaviour:
   firePoint: {fileID: 3289282476730363851}
   enemyBulletPrefab: {fileID: 74013404718340216, guid: 0ee88c61749acc44b9df52ad918c4c5e, type: 3}
   shootInterval: 2
+--- !u!114 &9086695966495426605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5589903647884988524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8880f20f70af57144a543258e541e30c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifePoints: 5
+  powerup1Prefab: {fileID: 7605576968229184256, guid: 04f3fe7876698cf4690eae82702f1132, type: 3}
+  dropChance: 0.2
+  dropChance2: 0.2
 --- !u!1 &7204589350197814605
 GameObject:
   m_ObjectHideFlags: 0

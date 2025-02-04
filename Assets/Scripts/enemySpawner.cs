@@ -5,30 +5,60 @@ using UnityEngine;
 public class enemySpawner : MonoBehaviour
 {
 
-    public GameObject enemyPrefab;
-    public float spawnInterval = 2f;
-    public int maxEnemies = 5;
-    private int currentEnemyCount = 0;
-    public float minSpawnDistance = 10f;
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private float spawnInterval;
+    [SerializeField] private int enemiesPerRound;
+    [SerializeField] private float minSpawnDistance;
+
+    private int enemiesRemaining = 0; //Enemigos por ronda
+    private int currentEnemyCount = 0; // Enemigos vivos en la ronda
 
     private List<GameObject> spawnedEnemies = new List<GameObject>();
 
     private float minX = -0.3f, maxX = 30f;
     private float minY = -18f, maxY = 12.5f;
 
+    private int currentRound = 0; //Número de ronda
+
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", 0f, spawnInterval);
+        StartNewRound();
+
+        if (enemiesRemaining > 0) return;
+
+    }
+
+    private void StartNewRound()
+    {
+        currentRound++;
+        enemiesRemaining = enemiesPerRound;
+
+        StartCoroutine(SpawnEnemies());
+        
+    }
+
+    IEnumerator SpawnEnemies()
+    {
+
+        for (int i = 0; i < enemiesPerRound; i++)
+        {
+
+            SpawnEnemy();
+            yield return new WaitForSeconds(spawnInterval);
+
+        }
+
     }
 
     private void SpawnEnemy()
     {
-        if (spawnedEnemies.Count < maxEnemies)
+        if (spawnedEnemies.Count < enemiesPerRound)
         {
             Vector2 spawnPosition;
 
             // Intenta generar un enemigo en una posición válida
             int attempts = 10;
+
             do
             {
                 spawnPosition = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
@@ -57,9 +87,27 @@ public class enemySpawner : MonoBehaviour
         return true;
     }
 
-    public void EnemyDestroyed()
+    public void EnemyDestroyed(GameObject enemy)
     {
-        currentEnemyCount--;
+
+        if (spawnedEnemies.Contains(enemy))
+        {
+            spawnedEnemies.Remove(enemy);
+        }
+
+        enemiesRemaining--;
+
+        if (enemiesRemaining <= 0)
+        {
+            StartCoroutine(WaitAndStartNextRound());
+        }
+
+    }
+
+    IEnumerator WaitAndStartNextRound()
+    {
+        yield return new WaitForSeconds(2f);
+        StartNewRound();
     }
 
 }

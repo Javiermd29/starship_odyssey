@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 
 public class Enemy : MonoBehaviour
 {
@@ -94,9 +97,20 @@ public class Enemy : MonoBehaviour
 
         if (lifePoints <= 0)
         {
-            Destroy(gameObject);
-            Debug.Log("Ship2 destruido");
+            Die();
         }
+
+    }
+
+    private void Die()
+    {
+        enemySpawner spawner = FindObjectOfType<enemySpawner>();
+        if (spawner != null)
+        {
+            spawner.EnemyDestroyed(gameObject);
+        }
+
+        Destroy(gameObject);
 
     }
 
