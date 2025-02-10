@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5528672940932331230}
   - component: {fileID: 1728540832404234265}
   - component: {fileID: 9086695966495426605}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ship2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3289282476730363851}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyFirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

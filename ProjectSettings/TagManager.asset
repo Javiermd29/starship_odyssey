@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Bullet
   - PowerUp
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -14,9 +15,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Enemy
+  - EnemyBullet
+  - Bullet
   - 
   - 
   - 

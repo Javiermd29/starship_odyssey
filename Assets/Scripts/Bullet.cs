@@ -10,9 +10,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-     
         rb.velocity = transform.right * bulletSpeed;
-
     }
 
     private void Update()
@@ -25,6 +23,7 @@ public class Bullet : MonoBehaviour
 
     }
 
+    // Detecta la colision del objeto con un enemigo
     void OnTriggerEnter2D(Collider2D other)
     {
         Enemy enemy = other.GetComponent<Enemy>();
@@ -39,6 +38,7 @@ public class Bullet : MonoBehaviour
 
             }
 
+            // El objeto se destruye si colisiona con el enemigo
             Destroy(gameObject);
 
         }

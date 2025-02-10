@@ -9,6 +9,8 @@ public class PowerUp : MonoBehaviour
 {
 
     [SerializeField] private Rigidbody2D powerRb;
+    private Transform player;
+    [SerializeField] private float attractionSpeed = 5f;
 
     private Image doubleShot;
     [SerializeField] private Sprite doubleShotActive;
@@ -16,6 +18,27 @@ public class PowerUp : MonoBehaviour
     private void Start()
     {
         doubleShot = GameObject.Find("Doble Shot").GetComponent<Image>();
+
+        // Encontrar al jugador
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+        {
+            player = playerObject.transform;
+        }
+
+    }
+
+    private void Update()
+    {
+        if (player != null)
+        {
+            // Calcula la direccion hacia el jugador
+            Vector2 direction = (player.position - transform.position).normalized;
+
+            // Mueve el Power-Up hacia el jugador
+            powerRb.velocity = direction * attractionSpeed;
+
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -33,8 +56,8 @@ public class PowerUp : MonoBehaviour
                 weapon.ActivatePowerUp();
             }
 
-
             Destroy(gameObject);
+
         }
 
     }

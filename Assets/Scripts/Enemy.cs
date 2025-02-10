@@ -8,21 +8,22 @@ using Random = UnityEngine.Random;
 public class Enemy : MonoBehaviour
 {
 
-    //Movimiento aleatoria de los enemigos
+    //Movimiento aleatorio de los enemigos
     private float speed = 4f; // Velocidad de movimiento
-    private float changeDirectionInterval = 2f; //Intervalo para cambiar de direccion
-    private Vector2 direction; //Direccion actual del movimiento
+    private float changeDirectionInterval = 2f; // Intervalo para cambiar de direccion
+    private Vector2 direction; // Direccion actual del movimiento
     private float timer;
 
     private float detecionRadius = 2f;
 
-    //bounds
+    // Limites del movimiento de los enemigos
     private float boundsX = 30f;
     private float boundsNegativeX = 2f;
     private float boundsY = 12.5f;
     private float boundsNegativeY = -18f;
 
-    private Vector2 screenBounds; // Límites de la pantalla
+    // Límites de la pantalla
+    private Vector2 screenBounds;
     [SerializeField] private int lifePoints;
 
     public GameObject powerup1Prefab;
@@ -41,10 +42,10 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        //Mueve al enemigo en la direccion actual
+        // Mueve al enemigo en la direccion actual
         transform.Translate(direction * speed * Time.deltaTime);
 
-        //Detecta colisiones con otros enemigos
+        // Detecta colisiones con otros enemigos
         Collider2D[] nearbyEnemies = Physics2D.OverlapCircleAll(transform.position, detecionRadius);
         foreach (Collider2D enemy in nearbyEnemies)
         {
@@ -83,8 +84,8 @@ public class Enemy : MonoBehaviour
 
     }
 
-     private void SetRandomDirection(){
-        //Genera una direccion aleatoria
+    // Genera una direccion aleatoria
+    private void SetRandomDirection(){
         float randomX = Random.Range(-1f, 1f);
         float randomY = Random.Range(-1f, 1f);
         direction = new Vector2(randomX, randomY).normalized;

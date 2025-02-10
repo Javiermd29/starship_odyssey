@@ -10,15 +10,17 @@ public class enemySpawner : MonoBehaviour
     [SerializeField] private int enemiesPerRound;
     [SerializeField] private float minSpawnDistance;
 
-    private int enemiesRemaining = 0; //Enemigos por ronda
+    private int enemiesRemaining = 0; // Enemigos por ronda
     private int currentEnemyCount = 0; // Enemigos vivos en la ronda
 
     private List<GameObject> spawnedEnemies = new List<GameObject>();
 
+    // Limites de spawn del enemigo
     private float minX = -0.3f, maxX = 30f;
     private float minY = -18f, maxY = 12.5f;
 
-    private int currentRound = 0; //Número de ronda
+    // Numero de ronda
+    private int currentRound = 0;
 
     void Start()
     {
@@ -42,10 +44,8 @@ public class enemySpawner : MonoBehaviour
 
         for (int i = 0; i < enemiesPerRound; i++)
         {
-
             SpawnEnemy();
             yield return new WaitForSeconds(spawnInterval);
-
         }
 
     }
@@ -61,9 +61,11 @@ public class enemySpawner : MonoBehaviour
 
             do
             {
+
                 spawnPosition = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
                 Debug.Log(spawnPosition);
                 attempts--;
+
             } while (!IsValidSpawnPosition(spawnPosition) && attempts > 0);
 
             if (attempts > 0)

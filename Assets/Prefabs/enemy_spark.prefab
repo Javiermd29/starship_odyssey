@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5842903097205653174}
   - component: {fileID: 7852649848076555070}
   - component: {fileID: 8926974612313092065}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: enemy_spark
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

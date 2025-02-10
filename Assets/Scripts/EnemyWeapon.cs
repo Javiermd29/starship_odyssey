@@ -54,6 +54,9 @@ public class EnemyWeapon : MonoBehaviour
 
             Rigidbody2D rb = enemyBullet.GetComponent<Rigidbody2D>();
 
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            enemyBullet.transform.rotation = Quaternion.Euler(0, 0, angle + 180f);
+
             if (rb != null)
             {
                 rb.velocity = direction * 10f;

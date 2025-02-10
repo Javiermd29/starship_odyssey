@@ -8,15 +8,14 @@ public class Player : MonoBehaviour
     private float horizontal;
     private float vertical;
 
-    //bound
-    private float boundsX = 30f;
+    // Limites del jugador
+    private float boundsX = -30f;
+    private float boundsNegativeX = -3f;
     private float boundsY = 12.5f;
     private float boundsNegativeY = -18f;
 
     [SerializeField] private float speed;
-
     [SerializeField] private Rigidbody2D rb;
-
     [SerializeField] private int lifePoints;
 
 
@@ -25,7 +24,7 @@ public class Player : MonoBehaviour
         transform.position = new Vector2(-30, -2);
     }
 
-    void Update()
+    private void Update()
     {
 
         horizontal = Input.GetAxis("Horizontal") * speed;
@@ -41,13 +40,13 @@ public class Player : MonoBehaviour
             transform.position = new Vector2(transform.position.x, -18f);
         }
 
-        if (transform.position.x >= boundsX)
-        {
-            transform.position = new Vector2(30f, transform.position.y);
-        }
-        else if (transform.position.x <= -boundsX)
+        if (transform.position.x <= boundsX)
         {
             transform.position = new Vector2(-30f, transform.position.y);
+        }
+        else if (transform.position.x >= boundsNegativeX)
+        {
+            transform.position = new Vector2(-3f, transform.position.y);
         }
 
     }
