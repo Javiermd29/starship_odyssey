@@ -11,8 +11,6 @@ public class Weapon : MonoBehaviour
     [SerializeField] public GameObject normalBulletPrefab;
     [SerializeField] public GameObject powerUpBulletPrefab;
 
-    private bool hasPowerUp = false;
-
     void Update()
     {
 
@@ -25,7 +23,7 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
-        if (hasPowerUp)
+        if (GameManager.Instance.hasPowerUp)
         {
             Instantiate(powerUpBulletPrefab, firePoint.position, firePoint.rotation);
         }
@@ -39,7 +37,7 @@ public class Weapon : MonoBehaviour
 
     public void ActivatePowerUp()
     {
-        hasPowerUp = true;
+        GameManager.Instance.hasPowerUp = true;
     }
 
 }

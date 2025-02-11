@@ -123,6 +123,13 @@ public class Enemy : MonoBehaviour
     private void TryDropItem()
     {
 
+        if (GameManager.Instance.hasPowerUp)
+        {
+            Debug.Log("ya no dropeo");
+            return;
+        }
+
+
         float randomValue = Random.Range(0f, 1f);
 
         if (randomValue <= dropChance)
@@ -137,6 +144,9 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("objeto no dropeado");
         }
+
+
+
     }
 
 }
