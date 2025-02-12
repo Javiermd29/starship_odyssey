@@ -33,10 +33,21 @@ public class enemySpawner : MonoBehaviour
     private void StartNewRound()
     {
         currentRound++;
+        Debug.Log("RONDA: " + currentRound);
+
+
         enemiesRemaining = enemiesPerRound;
 
+        if (currentRound > 3)
+        {
+
+            Debug.Log("no se spawnean más enemigos");
+
+            return;
+        }
+
         StartCoroutine(SpawnEnemies());
-        
+
     }
 
     IEnumerator SpawnEnemies()

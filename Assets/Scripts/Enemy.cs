@@ -29,7 +29,8 @@ public class Enemy : MonoBehaviour
     public GameObject powerup1Prefab;
     //public GameObject poweup2Prefab;
     public float dropChance = 0.2f;
-    public float dropChance2 = 0.2f;
+    private bool hasDroppedPowerUp = false;
+    //public float dropChance2 = 0.2f;
 
     void Start()
     {
@@ -123,12 +124,11 @@ public class Enemy : MonoBehaviour
     private void TryDropItem()
     {
 
-        if (GameManager.Instance.hasPowerUp)
+        if (GameManager.Instance.hasDroppedPowerUpOnce) // Si ya dropeó, no vuelve a hacerlo
         {
-            Debug.Log("ya no dropeo");
+            Debug.Log("Este enemigo ya dropeó un Power-Up antes. No se dropearán más");
             return;
         }
-
 
         float randomValue = Random.Range(0f, 1f);
 
@@ -138,6 +138,8 @@ public class Enemy : MonoBehaviour
             Instantiate(powerup1Prefab, transform.position, Quaternion.identity);
             //Instantiate(ppowerup2Prefab, transform.position, Queternion.identity);
             Debug.Log("objeto dropeado");
+
+           GameManager.Instance.hasDroppedPowerUpOnce = true;
 
         }
         else

@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject enemyPrefab;
 
+    public bool hasDroppedPowerUpOnce = false;
+
     public bool hasPowerUp;
 
     private void Awake()
