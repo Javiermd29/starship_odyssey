@@ -41,7 +41,8 @@ public class enemySpawner : MonoBehaviour
         if (currentRound > 3)
         {
 
-            Debug.Log("no se spawnean más enemigos");
+            Debug.Log("No se spawnean más enemigos, llamando al jefe");
+            FindObjectOfType<BossSpawner>()?.SpawnBoss();
 
             return;
         }

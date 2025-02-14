@@ -27,6 +27,7 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         Enemy enemy = other.GetComponent<Enemy>();
+        Boss boss = other.GetComponent<Boss>();
 
         if (other.CompareTag("Enemy"))
         { 
@@ -34,14 +35,21 @@ public class Bullet : MonoBehaviour
             if (enemy != null)
             {
 
-                enemy.TakeDamege(1);
+                enemy.TakeDamage(1);
 
             }
 
-            // El objeto se destruye si colisiona con el enemigo
+            else if (boss != null) // Si el objeto tiene el script Boss
+            {
+                boss.TakeDamage(1);
+
+            }
+
             Destroy(gameObject);
 
         }
+        
+
     }
 
 }

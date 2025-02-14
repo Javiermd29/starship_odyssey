@@ -29,7 +29,6 @@ public class Enemy : MonoBehaviour
     public GameObject powerup1Prefab;
     //public GameObject poweup2Prefab;
     public float dropChance = 0.2f;
-    private bool hasDroppedPowerUp = false;
     //public float dropChance2 = 0.2f;
 
     void Start()
@@ -92,7 +91,7 @@ public class Enemy : MonoBehaviour
         direction = new Vector2(randomX, randomY).normalized;
     }
 
-    public void TakeDamege(int damage)
+    public void TakeDamage(int damage)
     {
         lifePoints -= damage;
         Debug.Log("Enemy vida restante: " + lifePoints);

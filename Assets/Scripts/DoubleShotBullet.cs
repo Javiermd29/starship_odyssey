@@ -27,6 +27,7 @@ public class DoubleShotBullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         Enemy enemy = other.GetComponent<Enemy>();
+        Boss boss = other.GetComponent<Boss>();
 
         if (other.CompareTag("Enemy"))
         {
@@ -34,7 +35,13 @@ public class DoubleShotBullet : MonoBehaviour
             if (enemy != null)
             {
 
-                enemy.TakeDamege(3);
+                enemy.TakeDamage(3);
+
+            }
+
+            else if (boss != null) // Si el objeto tiene el script Boss
+            {
+                boss.TakeDamage(3);
 
             }
 

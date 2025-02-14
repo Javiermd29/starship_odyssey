@@ -5,7 +5,7 @@ using UnityEngine;
 public class BackgroundMovement : MonoBehaviour
 {
     // Velocidad de movimiento del fondo
-    public float speed = 2f;
+    public float speed = 4f;
 
     void Update()
     {
