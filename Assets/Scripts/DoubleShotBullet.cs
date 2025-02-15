@@ -35,13 +35,13 @@ public class DoubleShotBullet : MonoBehaviour
             if (enemy != null)
             {
 
-                enemy.TakeDamage(3);
+                enemy.TakeDamage(2);
 
             }
 
             else if (boss != null) // Si el objeto tiene el script Boss
             {
-                boss.TakeDamage(3);
+                boss.TakeDamage(2);
 
             }
 
