@@ -6,7 +6,7 @@ public class Boss : MonoBehaviour
 {
 
     //Movimiento aleatorio del jefe
-    private float speed = 2f; // Velocidad de movimiento
+    private float speed = 4f; // Velocidad de movimiento
     private float changeDirectionInterval = 3f; // Intervalo para cambiar de direccion
     private Vector2 direction; // Direccion actual del movimiento
 

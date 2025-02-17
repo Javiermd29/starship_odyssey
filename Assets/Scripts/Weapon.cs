@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;using Image = UnityEngine.UI.Image;
+using UnityEngine;
+using Image = UnityEngine.UI.Image;
 
 
 public class Weapon : MonoBehaviour
@@ -14,7 +15,7 @@ public class Weapon : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && UIManager.Instance.isPaused == false)
         {
             Shoot();
         }

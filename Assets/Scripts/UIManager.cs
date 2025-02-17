@@ -9,12 +9,22 @@ using UnityEngine.UIElements;
 public class UIManager : MonoBehaviour
 {
 
+    public static UIManager Instance;
+
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject optionPanel;
     [SerializeField] private GameObject gamePanel;
 
     public bool isPaused = false;
 
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("There's more than one instance");
+        }
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -22,7 +32,6 @@ public class UIManager : MonoBehaviour
         {
             mainMenuPanel.SetActive(true);
         }
-
 
         optionPanel.SetActive(false);
     }

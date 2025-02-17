@@ -19,9 +19,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("There's more than one instance");
         }
-
         Instance = this;
-
     }
 
 

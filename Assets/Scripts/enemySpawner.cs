@@ -37,7 +37,9 @@ public class enemySpawner : MonoBehaviour
 
         enemiesRemaining = enemiesPerRound;
 
-        if (currentRound > 3)
+        int bossRound = PlayerPrefs.GetInt("BossRound", 4);
+
+        if (currentRound > bossRound)
         {
 
             Debug.Log("No se spawnean más enemigos, llamando al jefe");

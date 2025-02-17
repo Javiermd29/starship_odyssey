@@ -17,12 +17,26 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
+
         audioSource = GetComponent<AudioSource>();
+
+        float savedVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        audioSource.volume = savedVolume;
+
+        // Sincronizar el slider si existe
+        if (volumeSlider != null)
+        {
+            volumeSlider.value = savedVolume;
+            volumeSlider.onValueChanged.AddListener(SetVolume);
+        }
+
     }
 
     private void Start()
     {
-        volumeSlider.value = 0.5f;
+
+        // Suscribir el slider al método que actualiza el volumen
+        //volumeSlider.onValueChanged.AddListener(SetVolume);
 
         muteToggle.onValueChanged.AddListener(SetMusicMute);
 
@@ -32,9 +46,11 @@ public class MusicManager : MonoBehaviour
 
     }
 
-    public void SetVolume(float volume)
+    public void SetVolume(float value)
     {
-        audioSource.volume = Mathf.Clamp01(volume);
+        audioSource.volume = value;
+        PlayerPrefs.SetFloat("MusicVolume", value);
+        PlayerPrefs.Save();
     }
 
     public void SetMusicMute(bool isMuted)
