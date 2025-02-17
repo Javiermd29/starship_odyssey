@@ -13,6 +13,7 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioClip clickSound;
 
     [SerializeField] private Slider volumeSlider;
+    [SerializeField] private Toggle muteToggle;
 
     private void Awake()
     {
@@ -22,11 +23,27 @@ public class MusicManager : MonoBehaviour
     private void Start()
     {
         volumeSlider.value = 0.5f;
+
+        muteToggle.onValueChanged.AddListener(SetMusicMute);
+
+        bool isMuted = PlayerPrefs.GetInt("MusicMuted", 0) == 1;
+        audioSource.mute = isMuted;
+        muteToggle.isOn = isMuted;
+
     }
 
     public void SetVolume(float volume)
     {
         audioSource.volume = Mathf.Clamp01(volume);
+    }
+
+    public void SetMusicMute(bool isMuted)
+    {
+        audioSource.mute = isMuted;
+
+        PlayerPrefs.SetInt("MusicMuted", isMuted ? 1 : 0);
+        PlayerPrefs.Save();
+
     }
 
     public void PlaySFX(AudioClip clip)
@@ -38,25 +55,4 @@ public class MusicManager : MonoBehaviour
         }
 
     }
-
-    /*public void PlaySoundAndLoadScene(int sceneNumber)
-    {
-
-        if (sfxSource != null && clickSound != null)
-        {
-            sfxSource.PlayOneShot(clickSound);
-            StartCoroutine(LoadSceneAfterSound(sceneNumber));
-        }
-        else
-        {
-            SceneManager.LoadScene(1);
-        }
-
-    }
-
-    private IEnumerator LoadSceneAfterSound(int sceneNumber)
-    {
-        yield return new WaitForSeconds(clickSound.length);
-        SceneManager.LoadScene(sceneNumber);
-    }*/
 }

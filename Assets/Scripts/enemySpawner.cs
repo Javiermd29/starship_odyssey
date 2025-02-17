@@ -11,7 +11,6 @@ public class enemySpawner : MonoBehaviour
     [SerializeField] private float minSpawnDistance;
 
     private int enemiesRemaining = 0; // Enemigos por ronda
-    private int currentEnemyCount = 0; // Enemigos vivos en la ronda
 
     private List<GameObject> spawnedEnemies = new List<GameObject>();
 
