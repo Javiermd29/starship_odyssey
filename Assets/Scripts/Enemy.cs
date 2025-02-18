@@ -110,15 +110,15 @@ public class Enemy : MonoBehaviour
         {
             spawner.EnemyDestroyed(gameObject);
         }
-
+        TryDropItem();
         Destroy(gameObject);
 
     }
 
-    private void OnDestroy()
+    /*private void OnDestroy()
     {
         TryDropItem();
-    }
+    }*/
 
     private void TryDropItem()
     {

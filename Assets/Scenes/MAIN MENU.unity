@@ -3765,6 +3765,7 @@ MonoBehaviour:
   clickSound: {fileID: 8300000, guid: 9591b4cb350a08c4e854543eccdcbaa4, type: 3}
   volumeSlider: {fileID: 276916694}
   muteToggle: {fileID: 666021129}
+  bossMusic: {fileID: 8300000, guid: 32d9779c1da40154383c0b566ebe7779, type: 3}
 --- !u!1 &2102657545
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,11 +6,12 @@ using Image = UnityEngine.UI.Image;
 
 public class Weapon : MonoBehaviour
 {
-
     [SerializeField] private Transform firePoint;
 
     [SerializeField] public GameObject normalBulletPrefab;
     [SerializeField] public GameObject powerUpBulletPrefab;
+
+    
 
     void Update()
     {

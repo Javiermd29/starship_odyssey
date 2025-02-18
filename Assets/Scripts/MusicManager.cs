@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,9 @@ using UnityEngine.UI;
 
 public class MusicManager : MonoBehaviour
 {
+    public static MusicManager Instance;
 
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioClip clickSound;
@@ -17,6 +19,12 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
+
+        if (Instance != null)
+        {
+            Debug.LogError("There's more than one instance");
+        }
+        Instance = this;
 
         audioSource = GetComponent<AudioSource>();
 
@@ -71,4 +79,23 @@ public class MusicManager : MonoBehaviour
         }
 
     }
+    public IEnumerator StartFade(float duration, float targetVolume)
+    {
+        float currentTime = 0;
+        float start = audioSource.volume;
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+            yield return null;
+        }
+
+        yield break;
+    }
+
+    internal static IEnumerator StartFade(object audioSource, int v1, int v2)
+    {
+        throw new NotImplementedException();
+    }
+
 }

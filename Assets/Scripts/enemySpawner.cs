@@ -34,14 +34,12 @@ public class enemySpawner : MonoBehaviour
         currentRound++;
         Debug.Log("RONDA: " + currentRound);
 
-
         enemiesRemaining = enemiesPerRound;
 
         int bossRound = PlayerPrefs.GetInt("BossRound", 4);
 
         if (currentRound > bossRound)
         {
-
             Debug.Log("No se spawnean más enemigos, llamando al jefe");
             FindObjectOfType<BossSpawner>()?.SpawnBoss();
 

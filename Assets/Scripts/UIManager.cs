@@ -86,6 +86,12 @@ public class UIManager : MonoBehaviour
         mainMenuPanel.SetActive(true);
     }
 
+    public void ToMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -93,7 +99,8 @@ public class UIManager : MonoBehaviour
 
     private IEnumerator WaitToPlayGame()
     {
-        yield return new WaitForSeconds(1f);
+        StartCoroutine(MusicManager.Instance.StartFade(1.5f, 0));
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(1);
     }
 
