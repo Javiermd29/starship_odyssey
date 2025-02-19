@@ -121,7 +121,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0055407286, y: 0.00027725846}
+  m_Offset: {x: -0.0073738694, y: -0.0006851852}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -132,7 +132,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7978742, y: 0.36432344}
+  m_Size: {x: 0.79420793, y: 0.3585487}
   m_EdgeRadius: 0
 --- !u!50 &-5528672940932331230
 Rigidbody2D:
@@ -191,6 +191,8 @@ MonoBehaviour:
   lifePoints: 5
   powerup1Prefab: {fileID: 7605576968229184256, guid: 04f3fe7876698cf4690eae82702f1132, type: 3}
   dropChance: 0.2
+  EffectOnDestroyPrefab: {fileID: 7045035226842340308, guid: 85f426f9f8c91c1469332a67826ea646, type: 3}
+  deathClip: {fileID: 8300000, guid: 8daa0b0319286df43a7b229c5476f2cc, type: 3}
 --- !u!1 &7204589350197814605
 GameObject:
   m_ObjectHideFlags: 0

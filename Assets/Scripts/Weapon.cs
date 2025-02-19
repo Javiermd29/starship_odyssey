@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] public GameObject normalBulletPrefab;
     [SerializeField] public GameObject powerUpBulletPrefab;
 
-    
+    [SerializeField] private AudioClip shootClip;
 
     void Update()
     {
@@ -28,10 +28,12 @@ public class Weapon : MonoBehaviour
         if (GameManager.Instance.hasPowerUp)
         {
             Instantiate(powerUpBulletPrefab, firePoint.position, firePoint.rotation);
+            MusicManager.Instance.PlaySFX(shootClip);
         }
         else
         {
             Instantiate(normalBulletPrefab, firePoint.position, firePoint.rotation);
+            MusicManager.Instance.PlaySFX(shootClip);
         }
         
 

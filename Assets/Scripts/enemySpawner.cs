@@ -32,7 +32,7 @@ public class enemySpawner : MonoBehaviour
     private void StartNewRound()
     {
         currentRound++;
-        Debug.Log("RONDA: " + currentRound);
+        UIManager.Instance.roundText.text = "ROUND: " + currentRound;
 
         enemiesRemaining = enemiesPerRound;
 
@@ -42,6 +42,7 @@ public class enemySpawner : MonoBehaviour
         {
             Debug.Log("No se spawnean más enemigos, llamando al jefe");
             FindObjectOfType<BossSpawner>()?.SpawnBoss();
+            UIManager.Instance.roundText.text = "BOSS TIME !";
 
             return;
         }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1220016706340598078}
   - component: {fileID: -3196065286334104839}
   - component: {fileID: -7360280751586206442}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PowerUp1
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
@@ -174,3 +174,4 @@ MonoBehaviour:
   powerRb: {fileID: -3196065286334104839}
   attractionSpeed: 10
   doubleShotActive: {fileID: 21300000, guid: 0fe5fad580cd7e74a954a15e49c5a824, type: 3}
+  powerUpPickUpClip: {fileID: 8300000, guid: 1bdde25457d09e647b73f6a33375f2be, type: 3}

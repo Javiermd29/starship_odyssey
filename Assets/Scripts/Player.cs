@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private int lifePoints;
 
+    
 
     private void Start()
     {
@@ -65,6 +66,7 @@ public class Player : MonoBehaviour
         if (lifePoints <= 0)
         {
             Destroy(gameObject);
+            UIManager.Instance.LosePanel();
         }
 
     }

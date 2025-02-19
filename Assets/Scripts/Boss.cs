@@ -11,13 +11,15 @@ public class Boss : MonoBehaviour
     private Vector2 direction; // Direccion actual del movimiento
 
     // Limites del movimiento de los enemigos
-    private float boundsX = 30f;
-    private float boundsNegativeX = 2f;
-    private float boundsY = 12.5f;
-    private float boundsNegativeY = -18f;
+    private float boundsX = 29f;
+    private float boundsNegativeX = 7.6f;
+    private float boundsY = 10f;
+    private float boundsNegativeY = -15.8f;
     private float timer;
 
     private int lifePoints = 50;
+
+    [SerializeField] private AudioClip bossDeathClip;
 
     // Límites de la pantalla
     private Vector2 screenBounds;
@@ -77,6 +79,8 @@ public class Boss : MonoBehaviour
         if (lifePoints <= 0)
         {
             Destroy(gameObject);
+            MusicManager.Instance.PlaySFX(bossDeathClip);
+            UIManager.Instance.WinPanel();
         }
 
     }

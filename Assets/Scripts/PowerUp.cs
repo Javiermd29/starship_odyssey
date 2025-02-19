@@ -11,13 +11,12 @@ public class PowerUp : MonoBehaviour
     [SerializeField] private Rigidbody2D powerRb;
     private Transform player;
     [SerializeField] private float attractionSpeed = 5f;
-
-    private Image doubleShot;
     [SerializeField] private Sprite doubleShotActive;
+
+    [SerializeField] private AudioClip powerUpPickUpClip;
 
     private void Start()
     {
-        doubleShot = GameObject.Find("Doble Shot").GetComponent<Image>();
 
         // Encontrar al jugador
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
@@ -54,6 +53,7 @@ public class PowerUp : MonoBehaviour
             if (weapon != null)
             {
                 weapon.ActivatePowerUp();
+                MusicManager.Instance.PlaySFX(powerUpPickUpClip);
             }
 
             Destroy(gameObject);

@@ -27,9 +27,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int lifePoints;
 
     public GameObject powerup1Prefab;
-    //public GameObject poweup2Prefab;
     public float dropChance = 0.2f;
-    //public float dropChance2 = 0.2f;
+
+    [SerializeField] private GameObject EffectOnDestroyPrefab;
+
+    [SerializeField] private AudioClip deathClip;
 
     void Start()
     {
@@ -99,6 +101,12 @@ public class Enemy : MonoBehaviour
         if (lifePoints <= 0)
         {
             Die();
+            MusicManager.Instance.PlaySFX(deathClip);
+            if (EffectOnDestroyPrefab)
+            {
+                Instantiate(EffectOnDestroyPrefab, transform.position, Quaternion.identity);
+            }
+
         }
 
     }
@@ -111,14 +119,10 @@ public class Enemy : MonoBehaviour
             spawner.EnemyDestroyed(gameObject);
         }
         TryDropItem();
+
         Destroy(gameObject);
 
     }
-
-    /*private void OnDestroy()
-    {
-        TryDropItem();
-    }*/
 
     private void TryDropItem()
     {
@@ -135,7 +139,6 @@ public class Enemy : MonoBehaviour
         {
 
             Instantiate(powerup1Prefab, transform.position, Quaternion.identity);
-            //Instantiate(ppowerup2Prefab, transform.position, Queternion.identity);
             Debug.Log("objeto dropeado");
 
            GameManager.Instance.hasDroppedPowerUpOnce = true;

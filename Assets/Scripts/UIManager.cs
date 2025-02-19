@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,6 +15,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject optionPanel;
     [SerializeField] private GameObject gamePanel;
+    [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameObject losePanel;
+    [SerializeField] private GameObject mainGamePanel;
+    public TextMeshProUGUI roundText;
 
     public bool isPaused = false;
 
@@ -86,6 +91,18 @@ public class UIManager : MonoBehaviour
         mainMenuPanel.SetActive(true);
     }
 
+    public void WinPanel()
+    {
+        mainGamePanel.SetActive(false);
+        winPanel.SetActive(true);
+    }
+
+    public void LosePanel()
+    {
+        mainGamePanel.SetActive(false);
+        losePanel.SetActive(true);
+    }
+
     public void ToMainMenu()
     {
         Time.timeScale = 1f;
@@ -95,6 +112,11 @@ public class UIManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void CreditsScene()
+    {
+        SceneManager.LoadScene(2);
     }
 
     private IEnumerator WaitToPlayGame()

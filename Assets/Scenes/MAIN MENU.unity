@@ -240,13 +240,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85997592}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 660437127}
-  m_Father: {fileID: 1496974939}
+  m_Father: {fileID: 1106215357}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -299,7 +299,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 622790150}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: MainMenu
+        m_MethodName: CreditsScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -612,7 +612,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 138, y: -49.9}
+  m_AnchoredPosition: {x: 138, y: 5.9}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &276916694
@@ -1288,6 +1288,9 @@ MonoBehaviour:
   mainMenuPanel: {fileID: 1106215354}
   optionPanel: {fileID: 203772522}
   gamePanel: {fileID: 0}
+  winPanel: {fileID: 0}
+  losePanel: {fileID: 0}
+  mainGamePanel: {fileID: 0}
   isPaused: 0
 --- !u!1 &660437126
 GameObject:
@@ -1458,7 +1461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 88.2, y: 90.95}
+  m_AnchoredPosition: {x: 88.2, y: 199.4}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &666021129
@@ -1913,6 +1916,7 @@ RectTransform:
   - {fileID: 343468787}
   - {fileID: 1620679715}
   - {fileID: 1364747879}
+  - {fileID: 85997593}
   m_Father: {fileID: 1496974939}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2439,10 +2443,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2487,7 +2491,6 @@ RectTransform:
   m_Children:
   - {fileID: 203772523}
   - {fileID: 1106215357}
-  - {fileID: 85997593}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3761,11 +3764,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be3026d17442a574c814d4d82227bdb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 2057273927}
   sfxSource: {fileID: 2057273930}
   clickSound: {fileID: 8300000, guid: 9591b4cb350a08c4e854543eccdcbaa4, type: 3}
   volumeSlider: {fileID: 276916694}
   muteToggle: {fileID: 666021129}
-  bossMusic: {fileID: 8300000, guid: 32d9779c1da40154383c0b566ebe7779, type: 3}
 --- !u!1 &2102657545
 GameObject:
   m_ObjectHideFlags: 0
