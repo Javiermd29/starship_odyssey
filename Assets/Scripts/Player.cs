@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private int lifePoints;
 
+    [SerializeField] private AudioClip playerDeathClip;
+
     
 
     private void Start()
@@ -66,6 +68,7 @@ public class Player : MonoBehaviour
         if (lifePoints <= 0)
         {
             Destroy(gameObject);
+            MusicManager.Instance.PlaySFX(playerDeathClip);
             UIManager.Instance.LosePanel();
         }
 

@@ -23,28 +23,26 @@ public class Bullet : MonoBehaviour
 
     }
 
-    // Detecta la colision del objeto con un enemigo
+    // Detects the collision of the object with an enemy
     void OnTriggerEnter2D(Collider2D other)
     {
         Enemy enemy = other.GetComponent<Enemy>();
         Boss boss = other.GetComponent<Boss>();
 
+        // Check if the collided object has the "Enemy" tag
         if (other.CompareTag("Enemy"))
-        { 
-
+        {
+            // If the object is an enemy, apply damage
             if (enemy != null)
             {
-
                 enemy.TakeDamage(1);
-
             }
-
-            else if (boss != null) // Si el objeto tiene el script Boss
+            // If the object is a boss, apply damage
+            else if (boss != null)
             {
                 boss.TakeDamage(1);
-
             }
-
+            // Destroy the bullet
             Destroy(gameObject);
 
         }

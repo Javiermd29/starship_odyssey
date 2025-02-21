@@ -8,34 +8,35 @@ using Random = UnityEngine.Random;
 public class Enemy : MonoBehaviour
 {
 
-    //Movimiento aleatorio de los enemigos
-    private float speed = 4f; // Velocidad de movimiento
-    private float changeDirectionInterval = 2f; // Intervalo para cambiar de direccion
-    private Vector2 direction; // Direccion actual del movimiento
+    // Random enemy movement
+    private float speed = 4f;
+    private float changeDirectionInterval = 2f; // Interval to change direction
+    private Vector2 direction; // Current direction of movement
     private float timer;
 
     private float detecionRadius = 2f;
 
-    // Limites del movimiento de los enemigos
+    // Enemy movement boundaries
     private float boundsX = 30f;
     private float boundsNegativeX = 2f;
     private float boundsY = 12.5f;
     private float boundsNegativeY = -18f;
 
-    // Límites de la pantalla
+    // Screen limits
     private Vector2 screenBounds;
     [SerializeField] private int lifePoints;
 
+    // Powerup prefab and drop chance
     public GameObject powerup1Prefab;
     public float dropChance = 0.2f;
 
+    // Particle system and death sound
     [SerializeField] private GameObject EffectOnDestroyPrefab;
-
     [SerializeField] private AudioClip deathClip;
 
     void Start()
     {
-        // Determinar los límites de la pantalla (en unidades del mundo)
+        // Determine the boundaries of the screen (in world units)
         Camera mainCamera = Camera.main;
         screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
 
@@ -44,25 +45,24 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        // Mueve al enemigo en la direccion actual
+        // Move the enemy in the current direction
         transform.Translate(direction * speed * Time.deltaTime);
 
-        // Detecta colisiones con otros enemigos
+        // Detect collisions with other enemies
         Collider2D[] nearbyEnemies = Physics2D.OverlapCircleAll(transform.position, detecionRadius);
         foreach (Collider2D enemy in nearbyEnemies)
         {
+            // Changes the direction if it detects another enemy
             if (enemy.gameObject != this.gameObject)
             {
-
                 Vector2 avoidanceDirection = (Vector2)(transform.position - enemy.transform.position).normalized;
                 direction = (direction + avoidanceDirection).normalized;
                 break;
-
             }
         }
 
         Vector3 position = transform.position;
-
+        // restricts enemies from exceeding established limits 
         if (position.x <= boundsNegativeX || position.x >= boundsX)
         {
             direction.x *= -1;
@@ -77,6 +77,7 @@ public class Enemy : MonoBehaviour
 
         transform.position = position;
 
+        // After X seconds the enemy changes the direction
         timer -= Time.deltaTime;
         if (timer <= 0f)
         {
@@ -86,7 +87,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    // Genera una direccion aleatoria
+    // Generate a random drection
     private void SetRandomDirection(){
         float randomX = Random.Range(-1f, 1f);
         float randomY = Random.Range(-1f, 1f);
@@ -96,19 +97,17 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         lifePoints -= damage;
-        Debug.Log("Enemy vida restante: " + lifePoints);
 
         if (lifePoints <= 0)
         {
             Die();
             MusicManager.Instance.PlaySFX(deathClip);
+            // Instantiate the death particle system
             if (EffectOnDestroyPrefab)
             {
                 Instantiate(EffectOnDestroyPrefab, transform.position, Quaternion.identity);
             }
-
         }
-
     }
 
     private void Die()
@@ -119,37 +118,32 @@ public class Enemy : MonoBehaviour
             spawner.EnemyDestroyed(gameObject);
         }
         TryDropItem();
-
         Destroy(gameObject);
-
     }
 
+    // Function to drop the powerup
     private void TryDropItem()
     {
-
-        if (GameManager.Instance.hasDroppedPowerUpOnce) // Si ya dropeó, no vuelve a hacerlo
+        // If it has been dropped, no enemy will drop more powerups
+        if (GameManager.Instance.hasDroppedPowerUpOnce) 
         {
-            Debug.Log("Este enemigo ya dropeó un Power-Up antes. No se dropearán más");
             return;
         }
 
         float randomValue = Random.Range(0f, 1f);
 
+        // if "randomValue" is lower or equal to the drop chance, drops the powerup and the bool "hasDroppedPowerUpOnce" turns true
         if (randomValue <= dropChance)
         {
 
             Instantiate(powerup1Prefab, transform.position, Quaternion.identity);
-            Debug.Log("objeto dropeado");
 
            GameManager.Instance.hasDroppedPowerUpOnce = true;
 
         }
         else
         {
-            Debug.Log("objeto no dropeado");
         }
-
-
 
     }
 

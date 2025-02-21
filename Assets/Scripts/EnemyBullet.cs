@@ -9,7 +9,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void Start()
     {
-        // Ignorar colisiones entre balas
+        // Ignore collisions between bullets
         Collider2D enemyCollider = GetComponent<Collider2D>();
         Collider2D[] enemyBullets = FindObjectsOfType<Collider2D>();
 
@@ -24,7 +24,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void Update()
     {
-        // Se destruye el objeto si supera los limites
+        // The object is destroyed if it exceeds the limits
         if (transform.position.x < -37f)
         {
             Destroy(gameObject);
@@ -32,7 +32,7 @@ public class EnemyBullet : MonoBehaviour
 
     }
 
-    // El jugador recibe daño si el objeto entra en contacto con el jugador
+    // The player takes damage if the object comes into contact with the player
     void OnTriggerEnter2D(Collider2D other)
     {
         Player player = other.GetComponent<Player>();
@@ -49,7 +49,7 @@ public class EnemyBullet : MonoBehaviour
 
 
         }
-         // Destruye el objeto si ha colisionado con el jugador
+        // Destroys the object if it has collided with the player
         Destroy(gameObject);
 
     }

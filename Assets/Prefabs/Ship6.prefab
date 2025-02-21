@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cec4754d51a71843968a1a39d8ab77b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossDeathClip: {fileID: 8300000, guid: 6de46ef5d3df5684e9835ba5b59887d8, type: 3}
 --- !u!114 &7757525862330192618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +189,7 @@ MonoBehaviour:
   firePoint: {fileID: 4257261137862614874}
   bossBulletPrefab: {fileID: 3460154261643859916, guid: 397ae5a30bb941f40a6a00f54091f9c7, type: 3}
   shootInterval: 1
+  bossShootClip: {fileID: 8300000, guid: 17c9ebe68e7e3ae449cf507e85141fdc, type: 3}
 --- !u!1 &2999851365641299731
 GameObject:
   m_ObjectHideFlags: 0

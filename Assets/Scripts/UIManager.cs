@@ -9,7 +9,6 @@ using UnityEngine.UIElements;
 
 public class UIManager : MonoBehaviour
 {
-
     public static UIManager Instance;
 
     [SerializeField] private GameObject mainMenuPanel;
@@ -42,7 +41,7 @@ public class UIManager : MonoBehaviour
     }
     void Update()
     {
-        // Detectar si se presiona la tecla ESC
+        // Detect if ESC  is pressed
         if (Input.GetKeyDown(KeyCode.Escape) && gamePanel != null)
         {
             if (isPaused)
@@ -56,21 +55,21 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    // Método para pausar el juego
+    // Pause the game
     public void PauseGame()
     {
         optionPanel.SetActive(true);
-        gamePanel.SetActive(false);// Mostrar el panel
-        Time.timeScale = 0f;        // Congelar el tiempo
+        gamePanel.SetActive(false);
+        Time.timeScale = 0f;
         isPaused = true;
     }
 
-    // Método para reanudar el juego
+    // Resume the game
     public void ResumeGame()
     {
         optionPanel.SetActive(false);
-        gamePanel.SetActive(true);// Ocultar el panel
-        Time.timeScale = 1f;         // Reanudar el tiempo
+        gamePanel.SetActive(true);
+        Time.timeScale = 1f;
         isPaused = false;
     }
 
@@ -93,12 +92,26 @@ public class UIManager : MonoBehaviour
 
     public void WinPanel()
     {
+        StartCoroutine(ShowWinPanelCoroutine());
+    }
+
+    // Coroutine to wait X seconds to show the win panel
+    private IEnumerator ShowWinPanelCoroutine()
+    {
+        yield return new WaitForSeconds(2.8f);
         mainGamePanel.SetActive(false);
         winPanel.SetActive(true);
     }
 
     public void LosePanel()
     {
+        StartCoroutine(ShowLosePanelCoroutine());
+    }
+
+    // Coroutine to wait X seconds to show the lose panel
+    private IEnumerator ShowLosePanelCoroutine()
+    {
+        yield return new WaitForSeconds(4.5f);
         mainGamePanel.SetActive(false);
         losePanel.SetActive(true);
     }
@@ -119,6 +132,7 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
+    // Coroutine to wait X seconds to play the game
     private IEnumerator WaitToPlayGame()
     {
         StartCoroutine(MusicManager.Instance.StartFade(1.5f, 0));

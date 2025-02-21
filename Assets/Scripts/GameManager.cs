@@ -9,8 +9,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject enemyPrefab;
 
+    // This bool is used by the "Enemy" script to know if a powerup has been dropped. if it has been dropped, no enemy will drop more powerups
     public bool hasDroppedPowerUpOnce = false;
 
+    // This bool is used in the "Weapon" script to know if player has the grabbed the powerup
     public bool hasPowerUp;
 
     private void Awake()

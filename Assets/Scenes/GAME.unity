@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 99319153}
   - component: {fileID: 99319155}
   - component: {fileID: 99319154}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6398,7 +6398,7 @@ GameObject:
   - component: {fileID: 258431613}
   - component: {fileID: 258431612}
   - component: {fileID: 258431614}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38509,8 +38509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5589903647884988524, guid: ed613565d80683749add8d2cc2026e9c, type: 3}
-  spawnInterval: 1
-  enemiesPerRound: 5
+  spawnInterval: 1.5
   minSpawnDistance: 5
 --- !u!4 &341589304
 Transform:
@@ -38699,7 +38698,7 @@ GameObject:
   - component: {fileID: 436766423}
   - component: {fileID: 436766426}
   - component: {fileID: 436766427}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -38714,7 +38713,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436766421}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -29.38, y: -2.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -38764,6 +38763,7 @@ MonoBehaviour:
   speed: 15
   rb: {fileID: 436766423}
   lifePoints: 10
+  playerDeathClip: {fileID: 8300000, guid: c3de5d6457a92144da00afd8bf5f70a4, type: 3}
 --- !u!212 &436766425
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -41013,7 +41013,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1576907286}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41537,9 +41537,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'YOU LOSE . . .
-
-'
+  m_text: GAME OVER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 52972c591678e49488b8b9f7f41cf53d, type: 2}
   m_sharedMaterial: {fileID: 7817601770429759751, guid: 52972c591678e49488b8b9f7f41cf53d, type: 2}
@@ -42108,7 +42106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1956919972}
   - component: {fileID: 1956919971}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
