@@ -19,19 +19,20 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
-
+        // Check if an instance already exists to prevent duplicates
         if (Instance != null)
         {
             Debug.LogError("There's more than one instance");
         }
-        Instance = this;
+        Instance = this; // Set this object as the singleton instance
 
         audioSource = GetComponent<AudioSource>();
 
+        // Retrieve the saved music volume from PlayerPrefs, defaulting to 1 (full volume) if not set
         float savedVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
         audioSource.volume = savedVolume;
 
-        // Sincronizar el slider si existe
+        // Synchronize the volume slider if it exists
         if (volumeSlider != null)
         {
             volumeSlider.value = savedVolume;
@@ -42,29 +43,28 @@ public class MusicManager : MonoBehaviour
 
     private void Start()
     {
+        muteToggle.onValueChanged.AddListener(SetMusicMute); // Add a listener to the mute toggle to call SetMusicMute when its value changes
 
-        // Suscribir el slider al método que actualiza el volumen
-        //volumeSlider.onValueChanged.AddListener(SetVolume);
-
-        muteToggle.onValueChanged.AddListener(SetMusicMute);
-
-        bool isMuted = PlayerPrefs.GetInt("MusicMuted", 0) == 1;
-        audioSource.mute = isMuted;
-        muteToggle.isOn = isMuted;
+        bool isMuted = PlayerPrefs.GetInt("MusicMuted", 0) == 1; // Retrieve the saved mute state from PlayerPrefs (default is 0, meaning not muted)
+        audioSource.mute = isMuted; // Apply the saved mute state to the audio source
+        muteToggle.isOn = isMuted; // Synchronize the mute toggle button with the saved state
 
     }
 
     public void SetVolume(float value)
     {
-        audioSource.volume = value;
+        audioSource.volume = value;  // Set the audio source volume to the given value
+
+        // Save the volume setting in PlayerPrefs
         PlayerPrefs.SetFloat("MusicVolume", value);
         PlayerPrefs.Save();
     }
 
     public void SetMusicMute(bool isMuted)
     {
-        audioSource.mute = isMuted;
+        audioSource.mute = isMuted; // Mute or unmute the audio source based on the given value
 
+        // Save the mute state in PlayerPrefs (1 for muted, 0 for unmuted)
         PlayerPrefs.SetInt("MusicMuted", isMuted ? 1 : 0);
         PlayerPrefs.Save();
 

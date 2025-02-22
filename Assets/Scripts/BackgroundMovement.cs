@@ -9,7 +9,7 @@ public class BackgroundMovement : MonoBehaviour
 
     void Update()
     {
-        // Mover el fondo hacia la izquierda
+        // Move background to the left
         transform.position += Vector3.left * speed * Time.deltaTime;
 
         if (transform.position.x < -5f)
@@ -20,7 +20,7 @@ public class BackgroundMovement : MonoBehaviour
 
     void RepositionBackground()
     {
-        // Reposiciona el fondo para que parezca infinito
+        // Reposition the background to appear infinite
         transform.position += new Vector3(40f, 0f, 0f);
     }
 }

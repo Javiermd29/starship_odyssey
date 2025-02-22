@@ -18,7 +18,7 @@ public class PowerUp : MonoBehaviour
     private void Start()
     {
 
-        // Encontrar al jugador
+        // Find the player
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
         {
@@ -31,10 +31,10 @@ public class PowerUp : MonoBehaviour
     {
         if (player != null)
         {
-            // Calcula la direccion hacia el jugador
+            // Calculate the direction towards the player
             Vector2 direction = (player.position - transform.position).normalized;
 
-            // Mueve el Power-Up hacia el jugador
+            // Moves the Power-Up towards the player like a magnet
             powerRb.velocity = direction * attractionSpeed;
 
         }
@@ -45,18 +45,17 @@ public class PowerUp : MonoBehaviour
         
         Player player = GetComponent<Player>();
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player")) // Check if the collided object has the "Player" tag
         {
-
             Weapon weapon = other.GetComponent<Weapon>();
 
             if (weapon != null)
             {
-                weapon.ActivatePowerUp();
-                MusicManager.Instance.PlaySFX(powerUpPickUpClip);
+                weapon.ActivatePowerUp(); // Activates the double shot
+                MusicManager.Instance.PlaySFX(powerUpPickUpClip); // Play the power-up pickup sound effect
             }
 
-            Destroy(gameObject);
+            Destroy(gameObject); // Destroy the power-up object after it has been collected
 
         }
 

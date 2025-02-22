@@ -8,15 +8,9 @@ public class BossBullet : MonoBehaviour
     [SerializeField] private float bulletSpeed;
     [SerializeField] private Rigidbody2D rb;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     private void Update()
     {
-        // Se destruye el objeto si supera los limites
+        // The object is destroyed if it exceeds the limits
         if (transform.position.x < -37f)
         {
             Destroy(gameObject);
@@ -24,26 +18,20 @@ public class BossBullet : MonoBehaviour
 
     }
 
-    // El jugador recibe daño si el objeto entra en contacto con el jugador
+    // The player takes damage if the object comes into contact with the player
     void OnTriggerEnter2D(Collider2D other)
     {
         Player player = other.GetComponent<Player>();
 
         if (other.CompareTag("Player"))
         {
-
             if (player != null)
             {
-
                 player.TakeDamege(2);
-
             }
-
-
         }
-        // Destruye el objeto si ha colisionado con el jugador
+        // Destroys the bullet if it has collided with the player
         Destroy(gameObject);
-
     }
 
 }

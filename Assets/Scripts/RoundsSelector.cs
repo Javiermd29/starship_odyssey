@@ -12,23 +12,20 @@ public class RoundsSelector : MonoBehaviour
 
     void Start()
     {
+        
+        int savedRound = PlayerPrefs.GetInt("BossRound", 4); // Retrieve the saved boss round value from PlayerPrefs, defaulting to 4 if not set
+        bossRoundSlider.value = savedRound; // Set the slider's value to the saved round
+        bossRoundText.text = savedRound.ToString(); // Update the displayed text to reflect the saved round value
 
-        // Cargar el valor almacenado o usar 4 por defecto
-        int savedRound = PlayerPrefs.GetInt("BossRound", 4);
-        bossRoundSlider.value = savedRound;
-        bossRoundText.text = savedRound.ToString();
-
-        // Suscribirse al evento para detectar cambios en el slider
         bossRoundSlider.onValueChanged.AddListener(UpdateBossRound);
 
     }
 
-    // Actualizar el valor de la ronda
     public void UpdateBossRound(float value)
     {
-        int round = Mathf.RoundToInt(value);
-        bossRoundText.text = round.ToString();
-        PlayerPrefs.SetInt("BossRound", round);
+        int round = Mathf.RoundToInt(value);  // Round the slider's float value to the nearest integer
+        bossRoundText.text = round.ToString(); // Update the displayed text with the new round value
+        PlayerPrefs.SetInt("BossRound", round); // Save the updated boss round value in PlayerPrefs
         PlayerPrefs.Save();
     }
 }
