@@ -34,6 +34,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject EffectOnDestroyPrefab;
     [SerializeField] private AudioClip deathClip;
 
+    private Vector3 particleOffset = Vector3.forward * -1;
+
     void Start()
     {
         // Determine the boundaries of the screen (in world units)
@@ -105,7 +107,7 @@ public class Enemy : MonoBehaviour
             // Instantiate the death particle system
             if (EffectOnDestroyPrefab)
             {
-                Instantiate(EffectOnDestroyPrefab, transform.position, Quaternion.identity);
+                Instantiate(EffectOnDestroyPrefab, transform.position + particleOffset, Quaternion.identity);
             }
         }
     }

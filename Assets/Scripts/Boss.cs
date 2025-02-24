@@ -17,7 +17,12 @@ public class Boss : MonoBehaviour
 
     private int lifePoints = 50;
 
+    // Effects on death
     [SerializeField] private AudioClip bossDeathClip;
+    [SerializeField] private AudioClip winClip;
+    [SerializeField] private GameObject EffectOnDestroyPrefab;
+
+    private Vector3 particleOffset = Vector3.forward * -1;
 
     private Vector2 screenBounds;
 
@@ -78,7 +83,13 @@ public class Boss : MonoBehaviour
         if (lifePoints <= 0)
         {
             Destroy(gameObject);
+            // Instantiate the death particle system
+            if (EffectOnDestroyPrefab)
+            {
+                Instantiate(EffectOnDestroyPrefab, transform.position + particleOffset, Quaternion.identity);
+            }
             MusicManager.Instance.PlaySFX(bossDeathClip); // Play the boss death sound effect
+            MusicManager.Instance.PlaySFX(winClip); // Play the win sound effect
             UIManager.Instance.WinPanel(); // Display the "Win" panel in the UI
         }
 

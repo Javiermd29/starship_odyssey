@@ -36,7 +36,6 @@ public class UIManager : MonoBehaviour
         {
             mainMenuPanel.SetActive(true);
         }
-
         optionPanel.SetActive(false);
     }
     void Update()

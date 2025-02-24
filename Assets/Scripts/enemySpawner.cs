@@ -24,9 +24,7 @@ public class enemySpawner : MonoBehaviour
     void Start()
     {
         StartNewRound();
-
         if (enemiesRemaining > 0) return;
-
     }
 
     private void StartNewRound()
@@ -46,21 +44,17 @@ public class enemySpawner : MonoBehaviour
 
             return;
         }
-
         // If it's not a boss round, start spawning regular enemies
         StartCoroutine(SpawnEnemies());
-
     }
 
     IEnumerator SpawnEnemies()
     {
-
         for (int i = 0; i < enemiesPerRound; i++)
         {
             SpawnEnemy();
             yield return new WaitForSeconds(spawnInterval);  // Wait for the specified interval before spawning the next enemy
         }
-
     }
 
     private void SpawnEnemy()

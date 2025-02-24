@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6942558287550310474}
   - component: {fileID: 4081001620608318075}
   - component: {fileID: 3713999914204255451}
-  - component: {fileID: -9036057479783675382}
+  - component: {fileID: 168960853495947600}
   m_Layer: 7
   m_Name: boss_spark
   m_TagString: Bullet
@@ -128,8 +128,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &-9036057479783675382
-BoxCollider2D:
+--- !u!70 &168960853495947600
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -157,19 +157,9 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.019280583, y: -0.011642676}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.63, y: 0.32}
-    newSize: {x: 0.63, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.59143883, y: 0.12396651}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.019097643, y: -0.010189096}
+  m_Size: {x: 0.5171845, y: 0.10684301}
+  m_Direction: 1
