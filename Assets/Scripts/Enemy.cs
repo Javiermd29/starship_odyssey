@@ -57,9 +57,7 @@ public class Enemy : MonoBehaviour
             // Changes the direction if it detects another enemy
             if (enemy.gameObject != this.gameObject)
             {
-                Vector2 avoidanceDirection = (Vector2)(transform.position - enemy.transform.position).normalized;
-                direction = (direction + avoidanceDirection).normalized;
-                break;
+                SetRandomDirection();
             }
         }
 
@@ -93,11 +91,6 @@ public class Enemy : MonoBehaviour
     private void SetRandomDirection(){
         float randomX = Random.Range(-1f, 1f);
         float randomY = Random.Range(-1f, 1f);
-
-        /*if (Mathf.Abs(direction.x) > 0.7f && Mathf.Abs(randomY) < 0.3f)
-        {
-            randomY = Random.Range(0.5f, 1f) * Mathf.Sign(randomY) * 0.5f; // Ensures that the value is not almost 0
-        }*/
 
         direction = new Vector2(randomX, randomY).normalized;
     }
@@ -143,11 +136,9 @@ public class Enemy : MonoBehaviour
         // if "randomValue" is lower or equal to the drop chance, drops the powerup and the bool "hasDroppedPowerUpOnce" turns true
         if (randomValue <= dropChance)
         {
-
             Instantiate(powerup1Prefab, transform.position, Quaternion.identity);
 
            GameManager.Instance.hasDroppedPowerUpOnce = true;
-
         }
         else
         {
