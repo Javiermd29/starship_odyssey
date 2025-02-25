@@ -12,6 +12,13 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] private AudioClip shootClip;
 
+    private Animator powerUpAnimation;
+
+    private void Start()
+    {
+        powerUpAnimation = GetComponent<Animator>();
+    }
+
     void Update()
     {
         // Shoot the player bullet is 
@@ -41,6 +48,8 @@ public class Weapon : MonoBehaviour
     public void ActivatePowerUp()
     {
         GameManager.Instance.hasPowerUp = true;
+        powerUpAnimation.SetTrigger("PowerUpTrigg");
+
     }
 
 }

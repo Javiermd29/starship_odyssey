@@ -93,6 +93,12 @@ public class Enemy : MonoBehaviour
     private void SetRandomDirection(){
         float randomX = Random.Range(-1f, 1f);
         float randomY = Random.Range(-1f, 1f);
+
+        /*if (Mathf.Abs(direction.x) > 0.7f && Mathf.Abs(randomY) < 0.3f)
+        {
+            randomY = Random.Range(0.5f, 1f) * Mathf.Sign(randomY) * 0.5f; // Ensures that the value is not almost 0
+        }*/
+
         direction = new Vector2(randomX, randomY).normalized;
     }
 

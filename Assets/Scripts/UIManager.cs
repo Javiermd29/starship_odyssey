@@ -5,7 +5,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class UIManager : MonoBehaviour
 {
@@ -36,7 +35,10 @@ public class UIManager : MonoBehaviour
         {
             mainMenuPanel.SetActive(true);
         }
-        optionPanel.SetActive(false);
+        if (optionPanel != null)
+        {
+            optionPanel.SetActive(false);
+        }
     }
     void Update()
     {
